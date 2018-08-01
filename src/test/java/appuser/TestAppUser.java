@@ -16,6 +16,32 @@ public class TestAppUser {
 		//findAllAppUser();
 		//findAppUser();
 		
+		//findmultiple();
+		
+		//sortMultiple();
+		//deleteOne();
+		AppUserDao appUserDao = new AppUserDao();
+		appUserDao.deleteAll();
+	}
+
+	private static void deleteOne() {
+		AppUserDao appUserDao = new AppUserDao();
+		appUserDao.delete("password","Kanlam");
+	}
+
+	private static void sortMultiple() {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("_id", 1);
+
+		
+		AppUserDao appUserDao = new AppUserDao();
+		List<AppUser> appUsers = appUserDao.sortMulitple(map);
+		for(AppUser appUser: appUsers) {
+			System.out.println(appUser.get_id().get$oid());
+		}
+	}
+
+	private static void findmultiple() {
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("email", "berry.sanford@yahoo.com");
 		map.put("password", "Quo Lux");
